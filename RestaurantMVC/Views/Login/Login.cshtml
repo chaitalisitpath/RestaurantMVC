@@ -1,0 +1,24 @@
+﻿@model RestaurantMVC.Models.LoginModel
+@{
+	ViewData["Title"] = "Login Page";
+}	
+<div class="vh-100 flex d-flex justify-content-center align-items-center">
+
+	<div class="">
+	@using (Html.BeginForm("Login", "Login", FormMethod.Post))
+		{
+			<h2 class="text-center">Login</h2>
+			<div class="form-group">
+			@Html.Label("uname", "Username")
+				@Html.TextBoxFor(Model=>Model.username,  new { @class = "form-control" })
+			</div>
+			<div class="form-group">
+			@Html.Label("pw", "Password")
+				@Html.TextBoxFor(Model=>Model.password, new { @class = "form-control" })
+			</div>
+			<center><button class="btn btn-primary mt-3">Submit</button></center>
+	
+
+		}
+	</div>
+</div>
