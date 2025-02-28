@@ -2,6 +2,7 @@
 {
     public interface IAuthenticate
     {
-       List<string> Authenticate();
+       bool Authenticate(string username, string password);
+        
     }
 }
