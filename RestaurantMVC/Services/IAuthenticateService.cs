@@ -1,6 +1,6 @@
 ﻿namespace RestaurantMVC.Services
 {
-    public interface IAuthenticate
+    public interface IAuthenticateService
     {
        public bool Authenticate(string username, string password);
         

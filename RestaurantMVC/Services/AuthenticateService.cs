@@ -1,9 +1,9 @@
 ﻿
 namespace RestaurantMVC.Services
 {
-    public class Authenticate : IAuthenticate
+    public class AuthenticateService : IAuthenticateService
     {
-        bool IAuthenticate.Authenticate(string username, string password)
+        public bool Authenticate(string username, string password)
         {
             return username == "chaitali" && password == "chaitali123";
         }

@@ -2,9 +2,9 @@
 @{
 	ViewData["Title"] = "Menu";
 }
-<h1>Menu</h1>
+<h1 class="text-center">Menu</h1>
 <div>
-	<table>
+	<table class="table mx-auto w-50 mt-5">
 		<thead>
 			<tr>
 				<th>@Html.DisplayNameFor(model => model.DishName)</th>
@@ -21,4 +21,11 @@
 			}
 		</tbody>
 	</table>
+</div>
+<div class="position-absolute bottom-0 right-0">
+	@using (Html.BeginForm("Login", "Login", FormMethod.Post))
+	{
+		<button class="btn btn-danger">Logout</button>
+	}
+	
 </div>

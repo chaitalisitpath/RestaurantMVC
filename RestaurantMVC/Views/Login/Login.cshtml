@@ -5,7 +5,7 @@
 @if(!string.IsNullOrEmpty(ViewBag.ErrorMessage as string))
 {
 	<script>
-		window.onload = function()
+		function showViewBagMessage()
 		{
 			alert("@ViewBag.ErrorMessage");
 		}
@@ -27,11 +27,8 @@
 				@Html.TextBoxFor(Model=>Model.password, new { @class = "form-control" })
 			</div>
 			<center class="mt-4">
-				<button type="submit" class="btn btn-primary">Submit</button>
+				<button type="submit" onClick="showViewBagMessage()" class="btn btn-primary">Submit</button>
 			</center>
-			
-	
-
 		}
 	</div>
 </div>

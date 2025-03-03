@@ -10,10 +10,17 @@ namespace RestaurantMVC
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-            builder.Services.AddScoped<IAuthenticate, Authenticate>();
-            builder.Services.AddSingleton<IMenu, Menu>();
+            builder.Services.AddScoped<IAuthenticateService, AuthenticateService>();
+            builder.Services.AddSingleton<IMenuService, MenuService>();
 
+            builder.Services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(1);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
             var app = builder.Build();
+         
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
@@ -29,7 +36,7 @@ namespace RestaurantMVC
             app.UseRouting();
 
             app.UseAuthorization();
-
+            app.UseSession();
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Login}/{action=Login}/{id?}");

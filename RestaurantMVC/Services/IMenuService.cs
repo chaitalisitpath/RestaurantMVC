@@ -3,7 +3,7 @@ using RestaurantMVC.Models;
 
 namespace RestaurantMVC.Services
 {
-    public interface IMenu
+    public interface IMenuService
     {
         IEnumerable<MenuModel> GetItems();
         

@@ -5,9 +5,9 @@ namespace RestaurantMVC.Controllers
 {
     public class LoginController : Controller
     {
-        private readonly IAuthenticate _authenticate;
+        private readonly IAuthenticateService _authenticate;
 
-        public LoginController(IAuthenticate authenticate)
+        public LoginController(IAuthenticateService authenticate)
         {
             _authenticate = authenticate;
         }
@@ -18,10 +18,12 @@ namespace RestaurantMVC.Controllers
         [HttpPost]
         public IActionResult Login(string username, string password)
         {
+            
 
             if(_authenticate.Authenticate(username, password))
             {
-                return RedirectToAction("Menu", "Login");
+                HttpContext.Session.SetString("User", username);
+                return RedirectToAction("Menu", "Menu");
             }
             ViewBag.ErrorMessage = "Please enter valid username and password";
             return View();
@@ -31,6 +33,7 @@ namespace RestaurantMVC.Controllers
         {
             return View();
         }
+        
 
     }
 }

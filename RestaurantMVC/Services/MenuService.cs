@@ -2,7 +2,7 @@
 
 namespace RestaurantMVC.Services
 {
-    public class Menu : IMenu
+    public class MenuService : IMenuService
     {
         //List<MenuModel> m = new List<MenuModel>();
         public IEnumerable<MenuModel> GetItems()

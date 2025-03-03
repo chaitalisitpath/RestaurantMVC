@@ -7,7 +7,7 @@ namespace RestaurantMVC.Models
         [Display(Name = "Dish Name")]
         public string? DishName { get; set; }
 
-        [Display(Name = "Price (Rupees)")]
+        [Display(Name = "Price (In Rupees)")]
         public decimal Price { get; set; }
     }
 }
