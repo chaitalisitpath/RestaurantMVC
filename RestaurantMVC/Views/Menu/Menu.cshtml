@@ -1,0 +1,24 @@
+﻿@model IEnumerable<RestaurantMVC.Models.MenuModel>
+@{
+	ViewData["Title"] = "Menu";
+}
+<h1>Menu</h1>
+<div>
+	<table>
+		<thead>
+			<tr>
+				<th>@Html.DisplayNameFor(model => model.DishName)</th>
+				<th>@Html.DisplayNameFor(model => model.Price)</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>@item.DishName</td>
+					<td>@item.Price</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>

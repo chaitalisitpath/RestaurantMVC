@@ -2,7 +2,7 @@
 {
     public interface IAuthenticate
     {
-       bool Authenticate(string username, string password);
+       public bool Authenticate(string username, string password);
         
     }
 }

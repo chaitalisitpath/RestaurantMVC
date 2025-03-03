@@ -1,3 +1,5 @@
+using RestaurantMVC.Services;
+
 namespace RestaurantMVC
 {
     public class Program
@@ -8,7 +10,8 @@ namespace RestaurantMVC
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-            
+            builder.Services.AddScoped<IAuthenticate, Authenticate>();
+            builder.Services.AddSingleton<IMenu, Menu>();
 
             var app = builder.Build();
 

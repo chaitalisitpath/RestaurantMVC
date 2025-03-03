@@ -11,11 +11,26 @@ namespace RestaurantMVC.Controllers
         {
             _authenticate = authenticate;
         }
-        public IActionResult Authenticate()
+        public IActionResult Login()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Login(string username, string password)
         {
 
-            var items = _authenticate.Authenticate();
-            return Ok(items);
+            if(_authenticate.Authenticate(username, password))
+            {
+                return RedirectToAction("Menu", "Login");
+            }
+            ViewBag.ErrorMessage = "Please enter valid username and password";
+            return View();
+           
         }
+        public IActionResult Menu()
+        {
+            return View();
+        }
+
     }
 }
