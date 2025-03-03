@@ -14,7 +14,7 @@ namespace RestaurantMVC.Controllers
         {
             if(HttpContext.Session.GetString("User")==null)
             {
-                HttpContext.Session.Clear();
+                HttpContext.Session.Remove("User");
                 return RedirectToAction("Login", "Login");
             }
             var items = _menu.GetItems();
