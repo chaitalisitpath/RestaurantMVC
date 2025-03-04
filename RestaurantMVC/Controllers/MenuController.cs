@@ -10,16 +10,23 @@ namespace RestaurantMVC.Controllers
        {
             _menu = menu;
        }
+
+        
+
         public IActionResult Menu()
         {
-            if(HttpContext.Session.GetString("User")==null)
+            if(string.IsNullOrEmpty(HttpContext.Session.GetString("User")))
             {
-                HttpContext.Session.Remove("User");
-                return RedirectToAction("Login", "Login");
+               return RedirectToAction("Login", "Login");
             }
-            var items = _menu.GetItems();
-            return View(items);
+            else { 
+                
+                ViewBag.WelcomeMessage = "Welcome " + HttpContext.Session.GetString("User") + " ...!!";
+                var items = _menu.GetItems();
+                return View(items);
+            }
         }
+       
 
         
     }

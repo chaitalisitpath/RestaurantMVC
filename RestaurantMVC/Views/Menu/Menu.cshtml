@@ -2,9 +2,10 @@
 @{
 	ViewData["Title"] = "Menu";
 }
-<h1 class="text-center">Menu</h1>
-<div>
-	<table class="table mx-auto w-50 mt-5">
+<h2 class="ms-5">@ViewBag.WelcomeMessage</h2>
+<h1 class="text-center mt-5">Menu</h1>
+<div class="mt-4">
+	<table class="table mx-auto w-50">
 		<thead>
 			<tr>
 				<th>@Html.DisplayNameFor(model => model.DishName)</th>
@@ -22,10 +23,6 @@
 		</tbody>
 	</table>
 </div>
-<div class="position-absolute bottom-0 right-0">
-	@using (Html.BeginForm("Login", "Login", FormMethod.Post))
-	{
-		<button class="btn btn-danger">Logout</button>
-	}
-	
-</div>
+
+
+

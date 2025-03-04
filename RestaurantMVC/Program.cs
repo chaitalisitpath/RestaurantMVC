@@ -10,9 +10,9 @@ namespace RestaurantMVC
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-            builder.Services.AddScoped<IAuthenticateService, AuthenticateService>();
+            builder.Services.AddSingleton<IAuthenticateService, AuthenticateService>();
             builder.Services.AddSingleton<IMenuService, MenuService>();
-
+            builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             builder.Services.AddSession(options =>
             {
                 options.IdleTimeout = TimeSpan.FromMinutes(1);

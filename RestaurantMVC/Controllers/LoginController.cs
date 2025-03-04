@@ -15,12 +15,14 @@ namespace RestaurantMVC.Controllers
         {
             return View();
         }
+        public IActionResult Menu()
+        {
+            return View();
+        }
         [HttpPost]
         public IActionResult Login(string username, string password)
         {
-            
-
-            if(_authenticate.Authenticate(username, password))
+           if(_authenticate.Authenticate(username, password))
             {
                 HttpContext.Session.SetString("User", username);
                 return RedirectToAction("Menu", "Menu");
@@ -29,11 +31,13 @@ namespace RestaurantMVC.Controllers
             return View();
            
         }
-        public IActionResult Menu()
+        public IActionResult Logout()
         {
-            return View();
+            HttpContext.Session.Clear();
+
+            return RedirectToAction("Login", "Login");
         }
-        
+
 
     }
 }

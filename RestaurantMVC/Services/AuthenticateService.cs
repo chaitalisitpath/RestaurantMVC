@@ -5,7 +5,7 @@ namespace RestaurantMVC.Services
     {
         public bool Authenticate(string username, string password)
         {
-            return username == "chaitali" && password == "chaitali123";
+            return username == "Chaitali" && password == "Chaitali123";
         }
     }
 }
